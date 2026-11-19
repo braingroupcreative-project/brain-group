@@ -124,6 +124,35 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePage> = {
     ],
     gradient: "from-navy via-navy-700 to-orange",
   },
+  communication: {
+    key: "communication",
+    title: "Communication & visibilité",
+    seoTitle: "Communication digitale, réseaux sociaux, clip vidéo et visibilité en ligne",
+    seoDescription:
+      "Brain Group accompagne entreprises et personnalités pour être vus sur les réseaux sociaux et sur Internet : gestion de réseaux, clips vidéo, publicité en ligne et image de marque.",
+    lead: "Entreprise, artiste, personnalité ou association : soyez vu et reconnu sur les réseaux sociaux et sur Internet grâce à notre équipe d'experts du digital.",
+    offers: [
+      { title: "Gestion des réseaux sociaux", text: "Création et animation de vos pages, calendrier de publications, contenus réguliers et suivi de votre audience." },
+      { title: "Clips et vidéos", text: "Réalisation de clips vidéo, spots publicitaires, vidéos de présentation et contenus courts pour les réseaux." },
+      { title: "Visibilité en ligne", text: "Campagnes de publicité en ligne et optimisation de votre présence pour toucher les bonnes personnes." },
+      { title: "Création de contenus", text: "Visuels, photos et affiches soignés, cohérents avec votre univers et adaptés à chaque réseau." },
+      { title: "Image de marque", text: "Identité visuelle, charte graphique et positionnement pour une image professionnelle et reconnaissable." },
+      { title: "Pour entreprises et personnalités", text: "Un accompagnement adapté à votre profil : commerce, artiste, influenceur, institution ou association." },
+    ],
+    steps: [
+      "Vous nous parlez de votre activité, de votre objectif et des réseaux visés.",
+      "Nous vous proposons une stratégie et un devis détaillé.",
+      "Notre équipe produit les contenus et les vidéos, avec vos validations.",
+      "Publication, suivi des résultats et ajustements pour renforcer votre visibilité.",
+    ],
+    faq: [
+      { q: "Réalisez-vous des clips vidéo complets ?", a: "Oui : de la préparation au tournage et au montage. Précisez la durée, le style et la date souhaités dans le formulaire." },
+      { q: "Pouvez-vous gérer mes réseaux sociaux à ma place ?", a: "Oui. Nous créons les contenus, les publions et suivons les résultats, selon la fréquence convenue dans le devis." },
+      { q: "Je suis un particulier ou un artiste, est-ce pour moi ?", a: "Oui, nous accompagnons aussi les personnalités, artistes et créateurs de contenus qui veulent gagner en visibilité." },
+      { q: "Comment est fixé le prix ?", a: "Après échange sur votre objectif : le devis détaille les contenus, la durée de l'accompagnement et les modalités de paiement." },
+    ],
+    gradient: "from-navy-800 via-navy to-orange",
+  },
 };
 
 /**

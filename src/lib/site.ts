@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Brain Group",
-  tagline: "Événementiel, imprimerie, informatique & solutions digitales",
+  tagline: "Événementiel, imprimerie, informatique, digital & communication",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   email: process.env.TEAM_EMAIL || "braingroupcreative@gmail.com",
   phone: process.env.NEXT_PUBLIC_PHONE || "",
@@ -14,7 +14,7 @@ export function waLink(text?: string, number: string = SITE.whatsapp) {
   return number ? `https://wa.me/${number}${q}` : `https://wa.me/${q}`;
 }
 
-export type ServiceKey = "evenementiel" | "imprimerie" | "informatique" | "digital";
+export type ServiceKey = "evenementiel" | "imprimerie" | "informatique" | "digital" | "communication";
 
 export const SERVICES: Record<
   ServiceKey,
@@ -51,6 +51,14 @@ export const SERVICES: Record<
     href: "/services/digital",
     icon: "code",
     blurb: "Sites web, e-commerce, applications web et mobiles, e-banking, automatisation et agents IA.",
+  },
+  communication: {
+    key: "communication",
+    label: "Communication & visibilité",
+    short: "Communication",
+    href: "/services/communication",
+    icon: "megaphone",
+    blurb: "Réseaux sociaux, clips vidéo, publicité en ligne et image de marque, pour les entreprises et les personnalités.",
   },
 };
 

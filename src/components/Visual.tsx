@@ -24,6 +24,7 @@ export function Visual({
     imprimerie: "from-orange via-orange-600 to-navy",
     informatique: "from-navy-700 via-navy to-orange",
     digital: "from-navy via-navy-700 to-orange",
+    communication: "from-navy-800 via-navy to-orange",
   }[service];
   if (image)
     return (

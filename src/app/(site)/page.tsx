@@ -18,12 +18,12 @@ export default async function Home() {
         <div aria-hidden className="absolute -bottom-32 left-0 h-80 w-80 rounded-full bg-navy-700/60 blur-3xl" />
         <div className="container-x relative grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
           <div>
-            <p className="eyebrow !text-orange">Événementiel · Imprimerie · Informatique · Digital &amp; IA</p>
+            <p className="eyebrow !text-orange">Événementiel · Imprimerie · Informatique · Digital · Communication</p>
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] !text-white sm:text-5xl lg:text-6xl">
               Vos événements, vos supports, <span className="text-orange">votre équipement.</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-              Brain Group réunit quatre savoir-faire, de l&apos;événement au numérique, pour donner de l&apos;éclat à vos projets. Décrivez votre besoin en quelques minutes et recevez un devis clair.
+              Brain Group réunit cinq savoir-faire, de l&apos;événement au numérique et à la communication, pour donner de l&apos;éclat à vos projets. Décrivez votre besoin en quelques minutes et recevez un devis clair.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/devis" className="btn-primary px-7 py-4 text-base">
@@ -39,10 +39,10 @@ export default async function Home() {
               ))}
             </ul>
           </div>
-          <div className="grid grid-cols-3 gap-3" aria-hidden="true">
-            {(["digital", "evenementiel", "imprimerie", "informatique"] as const).map((k, i) => (
+          <div className="grid grid-cols-2 gap-3" aria-hidden="true">
+            {(["digital", "evenementiel", "imprimerie", "informatique", "communication"] as const).map((k, i) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={k} src={`/illustrations/${k}.svg`} alt="" width={800} height={600} className={`w-full rounded-2xl shadow-xl ${i === 0 ? "col-span-3" : ""}`} loading={i === 0 ? "eager" : "lazy"} />
+              <img key={k} src={`/illustrations/${k}.svg`} alt="" width={800} height={600} className={`w-full rounded-2xl shadow-xl ${i === 0 ? "col-span-2" : ""}`} loading={i === 0 ? "eager" : "lazy"} />
             ))}
           </div>
         </div>
@@ -52,8 +52,8 @@ export default async function Home() {
       <section className="bg-mist py-16 sm:py-20">
         <div className="container-x">
           <p className="eyebrow">Nos activités</p>
-          <h2 className="mt-2 max-w-2xl text-3xl sm:text-4xl">Quatre pôles, un seul interlocuteur</h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <h2 className="mt-2 max-w-2xl text-3xl sm:text-4xl">Cinq pôles, un seul interlocuteur</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {Object.values(SERVICES).map((s) => (
               <Link key={s.key} href={s.href} className="card group flex flex-col p-6 transition hover:-translate-y-1 hover:shadow-lg">
                 <span className="grid h-12 w-12 place-items-center rounded-xl bg-orange-50 text-orange-700 transition group-hover:bg-orange group-hover:text-navy">

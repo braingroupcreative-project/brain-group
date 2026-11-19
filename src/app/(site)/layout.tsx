@@ -11,7 +11,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     url: SITE.url,
     email: SITE.email,
     ...(SITE.phone ? { telephone: SITE.phone } : {}),
-    description: "Couverture événementielle, imprimerie & communication visuelle, matériel informatique, sites web, applications, automatisation et intelligence artificielle.",
+    description: "Couverture événementielle, imprimerie & communication visuelle, matériel informatique, sites web, applications, automatisation, intelligence artificielle, communication et visibilité.",
     address: { "@type": "PostalAddress", addressCountry: "CI", addressLocality: SITE.address },
     ...(SITE.facebook ? { sameAs: [SITE.facebook] } : {}),
   };

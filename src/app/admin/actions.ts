@@ -382,7 +382,7 @@ export async function createRealisation(_: unknown, fd: FormData): Promise<{ ok?
     .object({
       title: z.string().trim().min(2, "Titre requis").max(120),
       caption: z.string().trim().max(300).default(""),
-      service: z.enum(["evenementiel", "imprimerie", "informatique", "digital"]),
+      service: z.enum(["evenementiel", "imprimerie", "informatique", "digital", "communication"]),
       fit: z.enum(["cover", "contain"]).default("cover"),
     })
     .safeParse(Object.fromEntries(fd.entries()));
@@ -419,8 +419,8 @@ export async function editRealisation(id: string, fd: FormData) {
   const title = String(fd.get("title") || "").trim().slice(0, 120);
   const caption = String(fd.get("caption") || "").trim().slice(0, 300);
   const service = String(fd.get("service"));
-  if (title.length < 2 || !["evenementiel", "imprimerie", "informatique", "digital"].includes(service)) return;
-  await db.update("realisations", id, { title, caption, service: service as "evenementiel" | "imprimerie" | "informatique" | "digital" });
+  if (title.length < 2 || !["evenementiel", "imprimerie", "informatique", "digital", "communication"].includes(service)) return;
+  await db.update("realisations", id, { title, caption, service: service as "evenementiel" | "imprimerie" | "informatique" | "digital" | "communication" });
   await audit(u.email, "modification réalisation", title);
   refreshGallery();
 }

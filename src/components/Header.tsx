@@ -10,6 +10,7 @@ const SERVICES = [
   { href: "/services/imprimerie", label: "Imprimerie & communication" },
   { href: "/services/informatique", label: "Matériel informatique" },
   { href: "/services/digital", label: "Solutions digitales & IA" },
+  { href: "/services/communication", label: "Communication & visibilité" },
 ];
 
 export function Header() {

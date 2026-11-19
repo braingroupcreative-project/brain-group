@@ -12,7 +12,7 @@ export const runtime = "nodejs";
 export const maxDuration = 30;
 
 const base = z.object({
-  service: z.enum(["evenementiel", "imprimerie", "informatique", "digital"]),
+  service: z.enum(["evenementiel", "imprimerie", "informatique", "digital", "communication"]),
   name: z.string().trim().min(2, "Nom requis").max(120),
   phone: z.string().trim().min(8, "Téléphone invalide").max(30).regex(/^[\d+\s().-]+$/, "Téléphone invalide"),
   email: z.string().trim().email("E-mail invalide").max(160),

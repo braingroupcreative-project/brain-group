@@ -149,3 +149,13 @@ alter table realisations drop constraint if exists realisations_service_check;
 alter table realisations add constraint realisations_service_check
   check (service in ('evenementiel','imprimerie','informatique','digital'));
 notify pgrst, 'reload schema';
+
+-- ---- Mise à jour v1.3 : nouveau pôle « Communication & visibilité » ----
+-- À exécuter sur une base déjà créée (sans danger si déjà appliqué).
+alter table requests drop constraint if exists requests_service_check;
+alter table requests add constraint requests_service_check
+  check (service in ('evenementiel','imprimerie','informatique','digital','communication'));
+alter table realisations drop constraint if exists realisations_service_check;
+alter table realisations add constraint realisations_service_check
+  check (service in ('evenementiel','imprimerie','informatique','digital','communication'));
+notify pgrst, 'reload schema';

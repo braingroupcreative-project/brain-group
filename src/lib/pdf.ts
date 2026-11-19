@@ -144,7 +144,7 @@ export async function buildQuotePdf(q: Quote, r: QuoteRequest): Promise<Buffer> 
   clientBlock(c, r, {
     label: "Objet",
     lines: [
-      { evenementiel: "Couverture événementielle", imprimerie: "Imprimerie & communication visuelle", informatique: "Matériel informatique", digital: "Solutions digitales & IA" }[r.service],
+      { evenementiel: "Couverture événementielle", imprimerie: "Imprimerie & communication visuelle", informatique: "Matériel informatique", digital: "Solutions digitales & IA", communication: "Communication & visibilité" }[r.service],
       `Demande ${r.ref}`,
       `Valable jusqu'au ${fmtDate(valid)}`,
     ],

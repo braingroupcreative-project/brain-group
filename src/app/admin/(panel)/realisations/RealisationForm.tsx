@@ -51,6 +51,7 @@ export function RealisationForm() {
             <option value="imprimerie">Imprimerie & communication</option>
             <option value="informatique">Informatique</option>
             <option value="digital">Digital &amp; IA</option>
+            <option value="communication">Communication &amp; visibilité</option>
           </select>
         </div>
         <div>

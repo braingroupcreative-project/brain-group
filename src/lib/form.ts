@@ -13,6 +13,7 @@ export interface Field {
 
 export const SERVICE_FIELDS: Record<ServiceKey, Field[]> = {
   digital: [], // défini plus bas
+  communication: [], // défini plus bas
   evenementiel: [
     {
       name: "type_evenement",
@@ -104,11 +105,42 @@ SERVICE_FIELDS.digital = [
   { name: "budget", label: "Budget indicatif (facultatif)", type: "text", placeholder: "Ex. 1 500 000 FCFA" },
 ];
 
+SERVICE_FIELDS.communication = [
+  {
+    name: "type_besoin",
+    label: "Votre besoin",
+    type: "select",
+    required: true,
+    options: [
+      "Gestion des réseaux sociaux",
+      "Création de contenus (visuels, photos)",
+      "Réalisation d'un clip vidéo",
+      "Spot publicitaire / vidéo de présentation",
+      "Campagne de publicité en ligne",
+      "Image de marque / identité",
+      "Autre",
+    ],
+  },
+  { name: "objectif", label: "Votre objectif", type: "textarea", required: true, placeholder: "Ex. être plus visible, lancer un produit, promouvoir mon activité, ma musique…" },
+  {
+    name: "profil",
+    label: "Vous êtes",
+    type: "select",
+    options: ["Une entreprise", "Une personnalité / un artiste / un influenceur", "Une association ou institution", "Un particulier", "Autre"],
+  },
+  { name: "reseaux", label: "Réseaux ou supports visés", type: "multi", options: ["Facebook", "Instagram", "TikTok", "YouTube", "LinkedIn", "WhatsApp Business", "Site web"] },
+  { name: "liens", label: "Vos pages ou réseaux actuels (liens)", type: "text", placeholder: "https://…" },
+  { name: "video", label: "Si vidéo : durée et style souhaités", type: "text", placeholder: "Ex. clip de 3 min, spot de 30 s" },
+  { name: "echeance", label: "Échéance souhaitée", type: "date" },
+  { name: "budget", label: "Budget indicatif (facultatif)", type: "text", placeholder: "Ex. 500 000 FCFA" },
+];
+
 export const SERVICE_ATTACH_HINT: Record<ServiceKey, string> = {
   evenementiel: "Programme, plan du lieu… (facultatif)",
   imprimerie: "Fichier de conception si disponible (PDF, JPG, PNG)",
   informatique: "Photo ou fiche technique du produit (facultatif)",
   digital: "Cahier des charges, maquettes, exemples de sites ou d'applications (facultatif)",
+  communication: "Logo, charte graphique, références ou exemples de contenus (facultatif)",
 };
 
 export const FIELD_LABELS: Record<string, string> = Object.fromEntries(
