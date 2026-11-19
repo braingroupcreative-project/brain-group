@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-navy antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold tracking-tight text-navy;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-orange ring-offset-2;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-display text-sm font-bold transition active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-orange text-navy shadow-sm hover:bg-orange-600;
+  }
+  .btn-dark {
+    @apply btn bg-navy text-white hover:bg-navy-800;
+  }
+  .btn-ghost {
+    @apply btn border border-navy/15 bg-white text-navy hover:border-navy/40;
+  }
+  .btn-sm {
+    @apply px-3 py-2 text-xs;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-card ring-1 ring-navy/5;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-navy;
+  }
+  .input {
+    @apply w-full rounded-lg border border-navy/20 bg-white px-3.5 py-3 text-base text-navy placeholder:text-navy/40 focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/40;
+  }
+  .eyebrow {
+    @apply font-display text-xs font-bold uppercase tracking-[.18em] text-orange-600;
+  }
+  .prose-bg h2 {
+    @apply mb-3 mt-8 text-xl;
+  }
+  .prose-bg p,
+  .prose-bg li {
+    @apply leading-relaxed text-navy/80;
+  }
+  .prose-bg ul {
+    @apply my-3 list-disc space-y-1 pl-5;
+  }
+}
