@@ -5,7 +5,7 @@ import { Gallery } from "./Gallery";
 
 export const metadata: Metadata = {
   title: "Nos réalisations",
-  description: "Découvrez les réalisations de Brain Group : couvertures d'événements, supports imprimés et matériel informatique.",
+  description: "Découvrez les réalisations de Brain Group : couvertures d'événements, supports imprimés, matériel informatique et projets digitaux.",
   alternates: { canonical: "/realisations" },
 };
 

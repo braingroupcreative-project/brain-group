@@ -23,6 +23,7 @@ export function Visual({
     evenementiel: "from-navy via-navy-800 to-orange",
     imprimerie: "from-orange via-orange-600 to-navy",
     informatique: "from-navy-700 via-navy to-orange",
+    digital: "from-navy via-navy-700 to-orange",
   }[service];
   if (image)
     return (

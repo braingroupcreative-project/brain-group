@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/services/evenementiel", 0.9],
     ["/services/imprimerie", 0.9],
     ["/services/informatique", 0.9],
+    ["/services/digital", 0.9],
     ["/realisations", 0.7],
     ["/a-propos", 0.6],
     ["/contact", 0.6],

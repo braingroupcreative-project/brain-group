@@ -44,6 +44,8 @@ Connexion admin locale : `admin@braingroup.local` / `ChangeMe!2026` (uniquement 
 6. `public/wave-qr.png` (QR Wave Marchand) est déjà en place. Le logo Brain Group (`public/logo.png` et `logo-white.png`) est déjà en place.
 7. **Réalisations** : les 3 logos fournis (Skiny & Seduction by Flora, BATCI, Dreamland Africa) sont publiés automatiquement au premier affichage. Ensuite, tout se gère dans **Administration → Réalisations**.
 
+> **v1.2 (pôle Solutions digitales & IA)** : exécuter la section « Mise à jour v1.2 » de `supabase/schema.sql` dans Supabase, sinon les demandes du nouveau pôle sont refusées par la base.
+>
 > Si la base Supabase a été créée avant la v1.1, exécuter à nouveau la fin de `supabase/schema.sql` (section « Mise à jour v1.1 ») pour créer la table `realisations`.
 
 ### Variables d'environnement (voir `.env.example`)

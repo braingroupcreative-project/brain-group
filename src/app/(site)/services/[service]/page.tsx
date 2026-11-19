@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { SERVICE_PAGES } from "@/lib/content";
 import { SERVICES, SITE, waLink, type ServiceKey } from "@/lib/site";
 import { Icon } from "@/components/Icon";
-import { Visual } from "@/components/Visual";
 
 export function generateStaticParams() {
   return Object.keys(SERVICE_PAGES).map((service) => ({ service }));
@@ -40,7 +39,8 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   return (
     <>
       <section className={`bg-gradient-to-br ${p.gradient} text-white`}>
-        <div className="container-x py-16 sm:py-24">
+        <div className="container-x grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-[1.1fr_.9fr]">
+          <div>
           <nav aria-label="Fil d'Ariane" className="text-sm text-white/70">
             <Link href="/" className="hover:text-white">Accueil</Link> / Services
           </nav>
@@ -54,6 +54,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
               <Icon name="whatsapp" className="h-5 w-5" /> Nous écrire sur WhatsApp
             </a>
           </div>
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/illustrations/${p.key}.svg`} alt="" width={800} height={600} className="mx-auto w-full max-w-md rounded-3xl shadow-2xl lg:max-w-none" />
         </div>
       </section>
 
@@ -107,7 +110,6 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
       <section className="py-14">
         <div className="container-x text-center">
-          <Visual service={p.key} alt="" className="mx-auto mb-6 hidden" />
           <h2 className="text-2xl sm:text-3xl">Prêt à lancer votre projet ?</h2>
           <Link href={`/devis?service=${p.key}`} className="btn-primary mt-6 px-8 py-4 text-base">Demander un devis</Link>
         </div>

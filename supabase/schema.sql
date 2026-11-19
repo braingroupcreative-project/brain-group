@@ -17,7 +17,7 @@ create table if not exists users (
 create table if not exists requests (
   id uuid primary key,
   ref text not null unique,
-  service text not null check (service in ('evenementiel','imprimerie','informatique')),
+  service text not null check (service in ('evenementiel','imprimerie','informatique','digital')),
   details jsonb not null default '{}',
   name text not null,
   phone text not null,
@@ -129,7 +129,7 @@ on conflict (id) do nothing;
 -- (à exécuter aussi sur une base déjà créée)
 create table if not exists realisations (
   id uuid primary key,
-  service text not null check (service in ('evenementiel','imprimerie','informatique')),
+  service text not null check (service in ('evenementiel','imprimerie','informatique','digital')),
   title text not null,
   caption text not null default '',
   image text not null,
@@ -139,3 +139,13 @@ create table if not exists realisations (
   created_at timestamptz not null default now()
 );
 alter table realisations enable row level security;
+
+-- ---- Mise à jour v1.2 : nouveau pôle « Solutions digitales & IA » ----
+-- À exécuter sur une base déjà créée (sans danger si déjà appliqué).
+alter table requests drop constraint if exists requests_service_check;
+alter table requests add constraint requests_service_check
+  check (service in ('evenementiel','imprimerie','informatique','digital'));
+alter table realisations drop constraint if exists realisations_service_check;
+alter table realisations add constraint realisations_service_check
+  check (service in ('evenementiel','imprimerie','informatique','digital'));
+notify pgrst, 'reload schema';

@@ -20,6 +20,7 @@ const PATHS: Record<string, string> = {
   grid: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
   list: "M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01",
   clock: "M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z",
+  code: "M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14",
   logout: "M10 4H5v16h5M15 8l4 4-4 4M19 12H9",
 };
 

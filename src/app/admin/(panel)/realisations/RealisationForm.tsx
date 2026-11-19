@@ -50,6 +50,7 @@ export function RealisationForm() {
             <option value="evenementiel">Événementiel</option>
             <option value="imprimerie">Imprimerie & communication</option>
             <option value="informatique">Informatique</option>
+            <option value="digital">Digital &amp; IA</option>
           </select>
         </div>
         <div>

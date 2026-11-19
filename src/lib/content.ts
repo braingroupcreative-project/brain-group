@@ -95,6 +95,35 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePage> = {
     ],
     gradient: "from-navy-700 via-navy to-orange",
   },
+  digital: {
+    key: "digital",
+    title: "Solutions digitales & intelligence artificielle",
+    seoTitle: "Création de site web, application mobile, e-commerce, automatisation et agents IA",
+    seoDescription:
+      "Brain Group conçoit vos sites web (vitrine, e-commerce), applications web et mobiles, solutions e-banking, automatisations, digitalisation de procédures et agents IA. Demandez votre devis.",
+    lead: "De l'idée à la mise en ligne : nous concevons les sites, applications et automatisations qui font gagner du temps à votre entreprise, et nous vous accompagnons dans l'usage de l'intelligence artificielle.",
+    offers: [
+      { title: "Sites web", text: "Sites vitrines et boutiques e-commerce modernes, rapides, adaptés au mobile et pensés pour attirer des clients." },
+      { title: "Applications web & mobiles", text: "Conception et développement d'applications sur mesure, Android, iOS et web, de la maquette à la publication." },
+      { title: "Applications e-banking & fintech", text: "Espaces clients, suivi de comptes et parcours de paiement en ligne, conçus avec une attention particulière à la sécurité." },
+      { title: "Automatisation de systèmes", text: "Connexion de vos outils, tâches répétitives automatisées, tableaux de bord et notifications pour réduire les erreurs et le temps perdu." },
+      { title: "Digitalisation de procédures", text: "Passage du papier au numérique : formulaires, validations, suivi de dossiers et archivage, pour des processus clairs et traçables." },
+      { title: "IA : accompagnement et agents", text: "Prise en main d'outils d'IA pour vos équipes et création d'agents IA (assistants, réponses automatiques, traitement de documents) adaptés à votre métier." },
+    ],
+    steps: [
+      "Vous décrivez votre projet et vos objectifs ; nous cadrons le besoin avec vous.",
+      "Nous vous remettons un devis détaillé, avec périmètre, planning et étapes de validation.",
+      "Nous concevons les maquettes, puis développons par étapes avec des points de validation réguliers.",
+      "Mise en ligne, formation de vos équipes et accompagnement après livraison.",
+    ],
+    faq: [
+      { q: "Pouvez-vous reprendre un site ou un outil existant ?", a: "Oui, indiquez le lien ou joignez la documentation dans le formulaire : nous évaluons l'existant et proposons une amélioration ou une refonte." },
+      { q: "Comment est fixé le prix d'un projet digital ?", a: "Après cadrage de votre besoin : le devis détaille les fonctionnalités, le planning et les modalités de paiement par étapes." },
+      { q: "Les données de mon entreprise sont-elles protégées ?", a: "La sécurité est intégrée dès la conception (accès contrôlés, données protégées). Les exigences précises sont définies avec vous, surtout pour les applications financières." },
+      { q: "Faut-il des connaissances techniques ?", a: "Non. Nous traduisons votre besoin métier en solution et formons vos équipes à l'utiliser." },
+    ],
+    gradient: "from-navy via-navy-700 to-orange",
+  },
 };
 
 /**

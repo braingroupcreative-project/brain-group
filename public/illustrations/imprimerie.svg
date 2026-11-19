@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustration : imprimerie, T-shirt, kakémono, cartes de visite et imprimante">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F28C28"/><stop offset="1" stop-color="#D9761A"/></linearGradient>
+    <linearGradient id="nv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16254A"/><stop offset="1" stop-color="#101B36"/></linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#101B36" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="800" height="600" rx="28" fill="url(#bg)"/>
+  <circle cx="700" cy="80" r="140" fill="#fff" opacity=".12"/><circle cx="80" cy="540" r="130" fill="#101B36" opacity=".14"/>
+  <!-- kakémono -->
+  <g filter="url(#sh)">
+    <rect x="80" y="80" width="150" height="400" rx="10" fill="url(#nv)"/>
+    <rect x="70" y="470" width="170" height="22" rx="8" fill="#fff"/>
+    <rect x="102" y="116" width="106" height="14" rx="7" fill="#F28C28"/>
+    <rect x="102" y="144" width="80" height="8" rx="4" fill="#fff" opacity=".8"/>
+    <circle cx="155" cy="262" r="46" fill="#F28C28"/><path d="M130 262h50M158 240l22 22-22 22" stroke="#101B36" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#fff" opacity=".5"><rect x="102" y="340" width="106" height="8" rx="4"/><rect x="102" y="360" width="90" height="8" rx="4"/><rect x="102" y="380" width="98" height="8" rx="4"/></g>
+    <rect x="102" y="420" width="106" height="28" rx="14" fill="#F28C28"/>
+  </g>
+  <!-- T-shirt -->
+  <g filter="url(#sh)">
+    <path d="M330 130l60-30c10 22 32 34 60 34s50-12 60-34l60 30 52 70-56 38-26-28v230H360V210l-26 28-56-38z" fill="#fff"/>
+    <path d="M390 100c10 22 32 34 60 34s50-12 60-34" fill="none" stroke="#E3E7F0" stroke-width="8"/>
+    <circle cx="450" cy="270" r="44" fill="#101B36"/>
+    <path d="M436 270a14 14 0 0 1 28 0M432 286h36" stroke="#F28C28" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <rect x="410" y="336" width="80" height="9" rx="4.5" fill="#F28C28"/><rect x="424" y="356" width="52" height="7" rx="3.5" fill="#101B36" opacity=".35"/>
+  </g>
+  <!-- cartes de visite -->
+  <g filter="url(#sh)">
+    <g transform="rotate(-8 640 330)"><rect x="560" y="270" width="190" height="110" rx="10" fill="#101B36"/><circle cx="596" cy="306" r="14" fill="#F28C28"/><rect x="620" y="298" width="80" height="8" rx="4" fill="#fff"/><rect x="620" y="314" width="56" height="6" rx="3" fill="#fff" opacity=".6"/><rect x="580" y="348" width="120" height="6" rx="3" fill="#fff" opacity=".4"/></g>
+    <g transform="rotate(6 650 430)"><rect x="560" y="388" width="190" height="110" rx="10" fill="#fff"/><rect x="580" y="410" width="60" height="10" rx="5" fill="#F28C28"/><rect x="580" y="430" width="110" height="7" rx="3.5" fill="#101B36"/><rect x="580" y="446" width="86" height="7" rx="3.5" fill="#101B36" opacity=".4"/><rect x="580" y="470" width="70" height="6" rx="3" fill="#101B36" opacity=".3"/></g>
+  </g>
+  <!-- pastilles couleur CMJN -->
+  <g><circle cx="300" cy="520" r="14" fill="#00AEEF"/><circle cx="336" cy="520" r="14" fill="#EC008C"/><circle cx="372" cy="520" r="14" fill="#FFF200"/><circle cx="408" cy="520" r="14" fill="#101B36"/></g>
+  <g fill="#fff"><path d="M720 70l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/></g>
+</svg>

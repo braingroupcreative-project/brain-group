@@ -154,7 +154,7 @@ export function QuoteForm({ initialService }: { initialService?: ServiceKey }) {
       {step === 1 && (
         <div>
           <h2 className="text-2xl">De quoi avez-vous besoin ?</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {Object.values(SERVICES).map((s) => (
               <button type="button" key={s.key} onClick={() => { setService(s.key); goto(2); }}
                 className={`card flex flex-col items-start p-6 text-left transition hover:-translate-y-0.5 hover:ring-2 hover:ring-orange ${service === s.key ? "ring-2 ring-orange" : ""}`}>

@@ -5,7 +5,7 @@ import { SERVICES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: "Brain Group : notre mission, notre vision, nos valeurs et notre savoir-faire en événementiel, imprimerie et matériel informatique.",
+  description: "Brain Group : notre mission, notre vision, nos valeurs et notre savoir-faire en événementiel, imprimerie, matériel informatique et solutions digitales.",
   alternates: { canonical: "/a-propos" },
 };
 
@@ -22,7 +22,7 @@ export default function About() {
       <section className="bg-navy py-14 text-white">
         <div className="container-x">
           <p className="eyebrow">À propos</p>
-          <h1 className="mt-2 max-w-3xl text-4xl font-extrabold !text-white">Brain Group, trois métiers au service de vos projets</h1>
+          <h1 className="mt-2 max-w-3xl text-4xl font-extrabold !text-white">Brain Group, quatre métiers au service de vos projets</h1>
         </div>
       </section>
       <section className="py-14">
@@ -30,8 +30,9 @@ export default function About() {
           <div className="prose-bg">
             <h2 className="!mt-0">Qui sommes-nous ?</h2>
             <p>
-              Brain Group est une entreprise ivoirienne qui accompagne particuliers, entreprises et institutions dans trois domaines complémentaires : la
-              couverture événementielle, l&apos;imprimerie et la communication visuelle, et la vente de matériel informatique.
+              Brain Group est une entreprise ivoirienne qui accompagne particuliers, entreprises et institutions dans quatre domaines complémentaires : la
+              couverture événementielle, l&apos;imprimerie et la communication visuelle, la vente de matériel informatique, et les solutions digitales (sites web,
+              applications, automatisation, intelligence artificielle).
             </p>
             <h2>Notre mission</h2>
             <p>Rendre vos événements mémorables, vos supports de communication percutants et votre équipement accessible, avec un service simple et fiable.</p>

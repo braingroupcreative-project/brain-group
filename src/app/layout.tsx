@@ -12,9 +12,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: "Brain Group — Événementiel, imprimerie & matériel informatique", template: "%s | Brain Group" },
+  title: { default: "Brain Group — Événementiel, imprimerie, informatique & solutions digitales", template: "%s | Brain Group" },
   description:
-    "Brain Group : couverture événementielle, imprimerie & communication visuelle, vente de matériel informatique. Demandez votre devis en ligne.",
+    "Brain Group : couverture événementielle, imprimerie & communication visuelle, matériel informatique, création de sites web, applications, automatisation et IA. Demandez votre devis en ligne.",
   openGraph: { type: "website", locale: "fr_CI", siteName: "Brain Group", url: SITE.url },
   robots: { index: true, follow: true },
 };

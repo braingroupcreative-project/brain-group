@@ -12,6 +12,7 @@ export interface Field {
 }
 
 export const SERVICE_FIELDS: Record<ServiceKey, Field[]> = {
+  digital: [], // défini plus bas
   evenementiel: [
     {
       name: "type_evenement",
@@ -75,10 +76,39 @@ export const SERVICE_FIELDS: Record<ServiceKey, Field[]> = {
   ],
 };
 
+SERVICE_FIELDS.digital = [
+  {
+    name: "type_projet",
+    label: "Type de projet",
+    type: "select",
+    required: true,
+    options: [
+      "Site vitrine",
+      "Site e-commerce",
+      "Application e-banking / fintech",
+      "Application web",
+      "Application mobile",
+      "Automatisation de systèmes",
+      "Digitalisation de procédures",
+      "Accompagnement à la prise en main d'outils IA",
+      "Création d'agent IA",
+      "Autre",
+    ],
+  },
+  { name: "description_projet", label: "Décrivez votre besoin", type: "textarea", required: true, placeholder: "Objectif, fonctionnalités attendues, contexte…" },
+  { name: "secteur", label: "Secteur d'activité", type: "text", placeholder: "Ex. commerce, banque, école, santé…" },
+  { name: "plateformes", label: "Plateformes visées", type: "multi", options: ["Web", "Android", "iOS", "Pas de préférence"] },
+  { name: "utilisateurs", label: "Nombre d'utilisateurs estimé", type: "text", placeholder: "Ex. 50 employés, 2 000 clients" },
+  { name: "existant", label: "Site ou outil existant (lien)", type: "text", placeholder: "https://…" },
+  { name: "echeance", label: "Échéance souhaitée", type: "date" },
+  { name: "budget", label: "Budget indicatif (facultatif)", type: "text", placeholder: "Ex. 1 500 000 FCFA" },
+];
+
 export const SERVICE_ATTACH_HINT: Record<ServiceKey, string> = {
   evenementiel: "Programme, plan du lieu… (facultatif)",
   imprimerie: "Fichier de conception si disponible (PDF, JPG, PNG)",
   informatique: "Photo ou fiche technique du produit (facultatif)",
+  digital: "Cahier des charges, maquettes, exemples de sites ou d'applications (facultatif)",
 };
 
 export const FIELD_LABELS: Record<string, string> = Object.fromEntries(
