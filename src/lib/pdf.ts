@@ -39,7 +39,8 @@ function wrap(text: string, font: PDFFont, size: number, maxW: number): string[]
 }
 
 async function loadLogo(doc: PDFDocument) {
-  for (const f of ["logo.png", "logo.jpg"]) {
+  // En-tête bleu nuit : version blanche du logo
+  for (const f of ["logo-white.png", "logo.png"]) {
     try {
       const buf = await fs.readFile(path.join(process.cwd(), "public", f));
       return f.endsWith("png") ? await doc.embedPng(buf) : await doc.embedJpg(buf);

@@ -41,7 +41,7 @@ Connexion admin locale : `admin@braingroup.local` / `ChangeMe!2026` (uniquement 
 3. **Dépôt Git** : pousser le projet (le dépôt doit appartenir à Brain Group ou lui être transféré).
 4. **Vercel** : *Add New Project* → importer le dépôt → renseigner les variables ci-dessous → déployer. Ajouter le domaine personnalisé (HTTPS automatique).
 5. **Premier accès** : se connecter sur `/admin/login` avec `ADMIN_EMAIL` / `ADMIN_PASSWORD` ; le compte administrateur est créé à la première connexion. **Changer aussitôt le mot de passe** (*Mon compte*), puis retirer `ADMIN_PASSWORD` des variables.
-6. `public/wave-qr.png` (QR Wave Marchand) est déjà en place. Déposer `public/logo.png` (logo Brain Group, PNG transparent) pour les PDF.
+6. `public/wave-qr.png` (QR Wave Marchand) est déjà en place. Le logo Brain Group (`public/logo.png` et `logo-white.png`) est déjà en place.
 7. **Réalisations** : les 3 logos fournis (Skiny & Seduction by Flora, BATCI, Dreamland Africa) sont publiés automatiquement au premier affichage. Ensuite, tout se gère dans **Administration → Réalisations**.
 
 > Si la base Supabase a été créée avant la v1.1, exécuter à nouveau la fin de `supabase/schema.sql` (section « Mise à jour v1.1 ») pour créer la table `realisations`.

@@ -16,7 +16,7 @@ export function mailLayout(title: string, bodyHtml: string, cta?: { label: strin
   return `<!doctype html><html><body style="margin:0;background:#F5F6F8;font-family:Helvetica,Arial,sans-serif;color:#101B36">
 <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fff;border-radius:12px;overflow:hidden">
-<tr><td style="background:#101B36;padding:20px 28px"><span style="font-family:Montserrat,Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:.5px">BRAIN <span style="color:#F28C28">GROUP</span></span></td></tr>
+<tr><td style="background:#101B36;padding:20px 28px"><img src="${SITE.url}/logo-white.png" alt="BRAIN GROUP" height="44" style="display:block;height:44px;width:auto;border:0;color:#fff;font-family:Montserrat,Helvetica,Arial,sans-serif;font-weight:800;font-size:20px"></td></tr>
 <tr><td style="padding:28px">
 <h1 style="font-family:Montserrat,Helvetica,Arial,sans-serif;font-size:20px;margin:0 0 16px;color:#101B36">${escapeHtml(title)}</h1>
 <div style="font-size:15px;line-height:1.6">${bodyHtml}</div>

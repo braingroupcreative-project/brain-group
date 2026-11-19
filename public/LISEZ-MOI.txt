@@ -1,5 +1,5 @@
 Fichiers de /public :
 
-  wave-qr.png   QR Code Wave Marchand (déjà en place).
-  logo.png      A AJOUTER : logo Brain Group (PNG transparent) -> utilisé dans les PDF.
-  realisations/ Logos fournis (affichés par défaut). Les nouvelles réalisations s'ajoutent depuis l'administration.
+  logo.png / logo-white.png  Logo Brain Group (version bleu nuit / blanche) - utilises par le site, les PDF et les e-mails.
+  wave-qr.png   QR Code Wave Marchand.
+  realisations/ Logos fournis ; les nouvelles realisations se gerent depuis Administration > Realisations.
