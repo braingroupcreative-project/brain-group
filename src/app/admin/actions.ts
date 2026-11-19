@@ -24,6 +24,11 @@ import {
   sendReceipt,
   setRequestStatus,
 } from "@/lib/workflow";
+import { sendMail, mailLayout } from "@/lib/mail";
+import { putFile } from "@/lib/storage";
+import { detectImage, MAX_IMAGE_BYTES } from "@/lib/uploads";
+import { SITE } from "@/lib/site";
+import { escapeHtml } from "@/lib/utils";
 import type { QuoteLine } from "@/lib/types";
 
 // ---------- Session ----------
@@ -337,4 +342,94 @@ export async function changeOwnPassword(_: unknown, fd: FormData): Promise<{ err
   await db.update("users", u.id, { password_hash: hashPassword(pw.data) });
   await audit(u.email, "changement de mot de passe", u.email);
   return { ok: true };
+}
+
+// ---------- Répondre au client ----------
+export async function replyToClient(id: string, _: unknown, fd: FormData): Promise<{ ok?: boolean; error?: string }> {
+  const u = await requireUser();
+  const r = await db.get("requests", id);
+  if (!r) return { error: "Demande introuvable." };
+  const subject = String(fd.get("subject") || "").trim().slice(0, 150);
+  const body = String(fd.get("body") || "").trim().slice(0, 5000);
+  if (!subject || body.length < 3) return { error: "Objet et message requis." };
+  const ok = await sendMail({
+    to: r.email,
+    replyTo: SITE.email,
+    subject,
+    html: mailLayout(
+      subject,
+      `<p>Bonjour ${escapeHtml(r.name)},</p><p>${escapeHtml(body).replace(/\n/g, "<br>")}</p><p style="color:#5b6478;font-size:13px">Référence de votre demande : <b>${r.ref}</b></p><p>${escapeHtml(u.name)}<br>Brain Group</p>`
+    ),
+  });
+  await db.update("requests", id, {
+    history: [...r.history, log(u.name, `E-mail envoyé au client : « ${subject} »${ok ? "" : " (ÉCHEC d'envoi)"}`)],
+    notes: [...r.notes, log(u.name, `[Réponse envoyée] ${body.slice(0, 500)}`)],
+  });
+  revalidatePath(`/admin/demandes/${id}`);
+  return ok ? { ok: true } : { error: "L'envoi a échoué. Vérifiez la configuration e-mail." };
+}
+
+// ---------- Réalisations (galerie publique) ----------
+function refreshGallery() {
+  revalidatePath("/");
+  revalidatePath("/realisations");
+  revalidatePath("/admin/realisations");
+}
+
+export async function createRealisation(_: unknown, fd: FormData): Promise<{ ok?: boolean; error?: string }> {
+  const u = await requireUser();
+  const parsed = z
+    .object({
+      title: z.string().trim().min(2, "Titre requis").max(120),
+      caption: z.string().trim().max(300).default(""),
+      service: z.enum(["evenementiel", "imprimerie", "informatique"]),
+      fit: z.enum(["cover", "contain"]).default("cover"),
+    })
+    .safeParse(Object.fromEntries(fd.entries()));
+  if (!parsed.success) return { error: parsed.error.issues[0].message };
+  const file = fd.get("image");
+  if (!(file instanceof File) || file.size === 0) return { error: "Choisissez une image." };
+  if (file.size > MAX_IMAGE_BYTES) return { error: "Image trop lourde (5 Mo maximum)." };
+  const buf = Buffer.from(await file.arrayBuffer());
+  const kind = detectImage(buf, file.name);
+  if (!kind) return { error: "Format non accepté : JPG, PNG ou WebP uniquement." };
+  const key = await putFile("realisations", file.name, buf, kind.mime);
+  await db.insert("realisations", {
+    ...parsed.data,
+    image: key,
+    featured: fd.get("featured") === "on",
+    visible: true,
+  });
+  await audit(u.email, "ajout réalisation", parsed.data.title);
+  refreshGallery();
+  return { ok: true };
+}
+
+export async function toggleRealisation(id: string, field: "visible" | "featured") {
+  const u = await requireUser();
+  const r = await db.get("realisations", id);
+  if (!r) return;
+  await db.update("realisations", id, { [field]: !r[field] });
+  await audit(u.email, `réalisation ${field} ${!r[field]}`, r.title);
+  refreshGallery();
+}
+
+export async function editRealisation(id: string, fd: FormData) {
+  const u = await requireUser();
+  const title = String(fd.get("title") || "").trim().slice(0, 120);
+  const caption = String(fd.get("caption") || "").trim().slice(0, 300);
+  const service = String(fd.get("service"));
+  if (title.length < 2 || !["evenementiel", "imprimerie", "informatique"].includes(service)) return;
+  await db.update("realisations", id, { title, caption, service: service as "evenementiel" | "imprimerie" | "informatique" });
+  await audit(u.email, "modification réalisation", title);
+  refreshGallery();
+}
+
+export async function deleteRealisation(id: string) {
+  const u = await requireUser();
+  const r = await db.get("realisations", id);
+  if (!r) return;
+  await db.remove("realisations", id);
+  await audit(u.email, "suppression réalisation", r.title);
+  refreshGallery();
 }

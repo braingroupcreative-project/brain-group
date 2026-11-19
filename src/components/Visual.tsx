@@ -1,21 +1,23 @@
+import Image from "next/image";
 import { Icon } from "./Icon";
 import type { ServiceKey } from "@/lib/site";
 import { SERVICES } from "@/lib/site";
-import Image from "next/image";
 
-/** Visuel de réalisation : photo réelle si fournie, sinon vignette de marque (jamais de fausse photo). */
+/** Visuel de réalisation : image réelle (logo, photo) ou, à défaut, vignette de marque. */
 export function Visual({
   service,
   image,
   alt,
   className = "",
   label,
+  fit = "cover",
 }: {
   service: ServiceKey;
   image?: string;
   alt: string;
   className?: string;
   label?: string;
+  fit?: "cover" | "contain";
 }) {
   const grad = {
     evenementiel: "from-navy via-navy-800 to-orange",
@@ -24,8 +26,16 @@ export function Visual({
   }[service];
   if (image)
     return (
-      <div className={`relative overflow-hidden ${className}`}>
-        <Image src={image} alt={alt} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover" loading="lazy" />
+      <div className={`relative overflow-hidden ${fit === "contain" ? "bg-white" : "bg-mist"} ${className}`}>
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(max-width:768px) 100vw, 33vw"
+          unoptimized={image.startsWith("/api/")}
+          className={fit === "contain" ? "object-contain p-4" : "object-cover"}
+          loading="lazy"
+        />
       </div>
     );
   return (

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { REALISATIONS } from "@/lib/content";
+import { listRealisations, realisationSrc } from "@/lib/realisations";
 import { Gallery } from "./Gallery";
 
 export const metadata: Metadata = {
@@ -9,8 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/realisations" },
 };
 
-export default function RealisationsPage() {
-  const items = REALISATIONS.filter((r) => r.visible !== false).sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+export const revalidate = 60;
+
+export default async function RealisationsPage() {
+  const items = (await listRealisations({ onlyVisible: true })).map((r) => ({ ...r, image: realisationSrc(r.image) }));
   return (
     <>
       <section className="bg-navy py-14 text-white">

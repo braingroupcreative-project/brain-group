@@ -97,29 +97,15 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePage> = {
   },
 };
 
-export interface Realisation {
-  id: string;
-  service: ServiceKey;
-  title: string;
-  caption: string;
-  image?: string; // chemin dans /public/realisations/…  (ex. "/realisations/mariage-01.jpg")
-  featured?: boolean;
-  visible?: boolean; // false = masquée
-}
-
 /**
- * GALERIE — remplacez ces exemples par de vraies photos dont Brain Group détient les droits :
- *   1. déposez les images optimisées dans /public/realisations/
- *   2. renseignez `image` (ex. "/realisations/mariage-01.jpg") ; `featured: true` la met en avant ; `visible: false` la masque.
+ * Réalisations affichées par défaut : elles sont copiées dans la base lors du premier affichage,
+ * puis gérées depuis l'administration (Réalisations : ajout, masquage, mise en avant, suppression).
  */
-export const REALISATIONS: Realisation[] = [
-  { id: "r1", service: "evenementiel", title: "Mariage — réception", caption: "Visuel à venir : couverture photo et vidéo.", featured: true, visible: true },
-  { id: "r2", service: "evenementiel", title: "Cérémonie de dot", caption: "Visuel à venir.", visible: true },
-  { id: "r3", service: "imprimerie", title: "Textiles personnalisés", caption: "Visuel à venir : T-shirts et polos floqués.", featured: true, visible: true },
-  { id: "r4", service: "imprimerie", title: "Kakémonos & stand PVC", caption: "Visuel à venir.", visible: true },
-  { id: "r5", service: "informatique", title: "Ordinateurs portables", caption: "Visuel à venir.", visible: true },
-  { id: "r6", service: "informatique", title: "Accessoires & périphériques", caption: "Visuel à venir.", visible: true },
-];
+export const DEFAULT_REALISATIONS = [
+  { id: "7b1f0a10-0000-4000-8000-000000000001", service: "imprimerie", title: "Logo — Skiny & Seduction by Flora", caption: "Création d'identité visuelle.", image: "/realisations/skiny-seduction.webp", fit: "contain", featured: true, visible: true },
+  { id: "7b1f0a10-0000-4000-8000-000000000002", service: "imprimerie", title: "Logo — BATCI, Services et Bâtiment de Côte d'Ivoire", caption: "Création d'identité visuelle.", image: "/realisations/batci.jpg", fit: "contain", featured: true, visible: true },
+  { id: "7b1f0a10-0000-4000-8000-000000000003", service: "imprimerie", title: "Logo — Dreamland Africa Business Center", caption: "Création d'identité visuelle, déclinée en versions claire et sombre.", image: "/realisations/dreamland-africa.png", fit: "contain", featured: true, visible: true },
+] as const;
 
 export const ADVANTAGES = [
   { icon: "users", title: "Un interlocuteur unique", text: "Événement, impression et équipement : un seul partenaire pour vos besoins." },

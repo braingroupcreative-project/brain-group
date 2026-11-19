@@ -116,5 +116,19 @@ export interface Tables {
   orders: Order;
   payments: Payment;
   audit: AuditEntry;
+  realisations: Realisation;
 }
 export type TableName = keyof Tables;
+
+export interface Realisation {
+  id: string;
+  service: import("./site").ServiceKey;
+  title: string;
+  caption: string;
+  /** Chemin statique (/realisations/x.png) ou clé du stockage (realisations/uuid-x.jpg) */
+  image: string;
+  fit: "cover" | "contain";
+  featured: boolean;
+  visible: boolean;
+  created_at: string;
+}

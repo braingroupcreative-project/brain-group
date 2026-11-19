@@ -52,6 +52,11 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
         <h1 className="text-2xl">Tableau de bord</h1>
         <p className="text-sm text-navy/60">Vue d&apos;ensemble de l&apos;activité commerciale.</p>
       </div>
+      <div className="flex flex-wrap gap-2">
+        <Link href="/admin/demandes" className="btn-dark btn-sm">Traiter les demandes</Link>
+        <Link href="/admin/realisations" className="btn-primary btn-sm">+ Ajouter une réalisation</Link>
+        <Link href="/admin/commandes" className="btn-ghost btn-sm">Commandes &amp; paiements</Link>
+      </div>
       {denied && <p className="rounded-lg bg-amber-50 p-3 text-sm text-amber-800">Vous n&apos;avez pas les droits pour accéder à cette page.</p>}
 
       {(overdue.length > 0 || approaching.length > 0 || toVerify.length > 0) && (

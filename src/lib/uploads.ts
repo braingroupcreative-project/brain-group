@@ -28,4 +28,14 @@ export function detectFile(buf: Buffer, claimedName: string): { ext: string; mim
   return { ext: sig.ext, mime: sig.mime };
 }
 
+/** Images de la galerie publique : JPG, PNG ou WebP uniquement (type réel contrôlé). */
+export function detectImage(buf: Buffer, claimedName: string): { ext: string; mime: string } | null {
+  const ext = (claimedName.split(".").pop() || "").toLowerCase().replace("jpeg", "jpg");
+  const isWebp = buf.subarray(0, 4).toString("latin1") === "RIFF" && buf.subarray(8, 12).toString("latin1") === "WEBP";
+  if (isWebp && ext === "webp") return { ext: "webp", mime: "image/webp" };
+  const k = detectFile(buf, claimedName);
+  return k && (k.ext === "jpg" || k.ext === "png") ? k : null;
+}
+export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+
 export const ALLOWED_LABEL = "PDF, JPG, PNG ou DOCX — 8 Mo maximum par fichier";

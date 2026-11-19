@@ -7,6 +7,7 @@ import { FIELD_LABELS } from "@/lib/form";
 import { REQUEST_STATUSES, SERVICES, STATUS_LABELS, waLink } from "@/lib/site";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Icon } from "@/components/Icon";
+import { ReplyForm } from "./ReplyForm";
 import { addNote, assignRequest, changeStatus, createQuote, deleteRequest, takeRequest } from "../../../actions";
 
 export const metadata = { title: "Demande", robots: { index: false } };
@@ -74,6 +75,11 @@ export default async function RequestPage({ params }: { params: Promise<{ id: st
                 </ul>
               </div>
             )}
+          </section>
+
+          <section className="card p-5">
+            <h2 className="mb-3 text-base">Répondre au client</h2>
+            <ReplyForm id={r.id} ref_={r.ref} name={r.name} />
           </section>
 
           <section className="card p-5">

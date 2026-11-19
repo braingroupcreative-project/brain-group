@@ -13,6 +13,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     { href: "/admin", label: "Tableau de bord", icon: "grid" },
     { href: "/admin/demandes", label: "Demandes", icon: "list" },
     { href: "/admin/commandes", label: "Commandes & paiements", icon: "doc" },
+    { href: "/admin/realisations", label: "Réalisations", icon: "star" },
     ...(user.role === "admin" ? [{ href: "/admin/utilisateurs", label: "Utilisateurs", icon: "users" }] : []),
     { href: "/admin/compte", label: "Mon compte", icon: "shield" },
   ];

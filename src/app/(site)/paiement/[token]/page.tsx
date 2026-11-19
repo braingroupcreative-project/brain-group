@@ -67,7 +67,7 @@ export default async function Paiement({ params }: { params: Promise<{ token: st
             <div className="mt-5 grid place-items-center rounded-xl bg-white p-4 ring-1 ring-navy/10">
               {hasQr ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src="/wave-qr.png" alt="QR Code Wave Marchand de Brain Group" width={240} height={240} className="h-60 w-60 object-contain" />
+                <img src="/wave-qr.png" alt="QR Code Wave Marchand de Brain Group" width={831} height={1170} className="h-auto w-full max-w-[280px] rounded-xl" />
               ) : (
                 <div className="grid h-60 w-60 place-items-center rounded-lg border-2 border-dashed border-navy/20 p-4 text-center text-sm text-navy/50">QR Code Wave Marchand à ajouter dans <code>/public/wave-qr.png</code></div>
               )}

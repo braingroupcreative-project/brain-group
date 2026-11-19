@@ -1,6 +1,5 @@
-Fichiers à déposer dans /public (fournis par Brain Group) :
+Fichiers de /public :
 
-  logo.png      Logo (PNG transparent) -> utilisé automatiquement dans les PDF (devis, reçus).
-                Pour le site, remplacez aussi le composant src/components/Logo.tsx par une balise <img src="/logo.svg">.
-  wave-qr.png   QR Code officiel Wave Marchand -> affiché sur la page de paiement client.
-  realisations/ Photos/vidéos optimisées, puis renseigner src/lib/content.ts (REALISATIONS).
+  wave-qr.png   QR Code Wave Marchand (déjà en place).
+  logo.png      A AJOUTER : logo Brain Group (PNG transparent) -> utilisé dans les PDF.
+  realisations/ Logos fournis (affichés par défaut). Les nouvelles réalisations s'ajoutent depuis l'administration.

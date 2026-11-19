@@ -124,3 +124,18 @@ revoke all on function next_counter(text) from public, anon, authenticated;
 insert into storage.buckets (id, name, public)
 values ('brain-private', 'brain-private', false)
 on conflict (id) do nothing;
+
+-- ---- Mise à jour v1.1 : réalisations gérées depuis l'administration ----
+-- (à exécuter aussi sur une base déjà créée)
+create table if not exists realisations (
+  id uuid primary key,
+  service text not null check (service in ('evenementiel','imprimerie','informatique')),
+  title text not null,
+  caption text not null default '',
+  image text not null,
+  fit text not null default 'cover' check (fit in ('cover','contain')),
+  featured boolean not null default false,
+  visible boolean not null default true,
+  created_at timestamptz not null default now()
+);
+alter table realisations enable row level security;
