@@ -130,5 +130,7 @@ export interface Realisation {
   fit: "cover" | "contain";
   featured: boolean;
   visible: boolean;
+  /** Lien vers le projet réalisé (site, application, vidéo) — facultatif */
+  link: string;
   created_at: string;
 }

@@ -31,6 +31,7 @@ export default async function AdminRealisations() {
                 <form action={editRealisation.bind(null, r.id)} className="space-y-2">
                   <input name="title" defaultValue={r.title} aria-label="Titre" required className="input !py-2 text-sm font-semibold" />
                   <input name="caption" defaultValue={r.caption} aria-label="Légende" className="input !py-2 text-sm" />
+                  <input name="link" defaultValue={r.link || ""} aria-label="Lien du projet" placeholder="Lien du projet (https://…)" inputMode="url" className="input !py-2 text-sm" />
                   <div className="flex flex-wrap items-center gap-2">
                     <select name="service" defaultValue={r.service} aria-label="Activité" className="input !w-auto !py-1.5 text-sm">
                       {Object.values(SERVICES).map((s) => (

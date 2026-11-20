@@ -30,6 +30,11 @@ export function Gallery({ items }: { items: Realisation[] }) {
             <figcaption className="p-4">
               <p className="font-display text-sm font-bold">{r.title}</p>
               <p className="mt-0.5 text-xs text-navy/60">{r.caption}</p>
+              {r.link && /^https?:\/\//.test(r.link) && (
+                <a href={r.link} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-orange-700 hover:underline">
+                  Voir le projet <span aria-hidden="true">↗</span>
+                </a>
+              )}
             </figcaption>
           </figure>
         ))}

@@ -370,6 +370,21 @@ export async function replyToClient(id: string, _: unknown, fd: FormData): Promi
 }
 
 // ---------- Réalisations (galerie publique) ----------
+/** Accepte une adresse sans « https:// » ; refuse tout schéma autre que http(s). */
+function cleanLink(raw: string): string | null {
+  const v = raw.trim();
+  if (!v) return "";
+  const withScheme = /^[a-z][a-z0-9+.-]*:/i.test(v) ? v : `https://${v}`;
+  try {
+    const u = new URL(withScheme);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+    if (!u.hostname.includes(".")) return null;
+    return u.toString().slice(0, 300);
+  } catch {
+    return null;
+  }
+}
+
 function refreshGallery() {
   revalidatePath("/");
   revalidatePath("/realisations");
@@ -387,6 +402,8 @@ export async function createRealisation(_: unknown, fd: FormData): Promise<{ ok?
     })
     .safeParse(Object.fromEntries(fd.entries()));
   if (!parsed.success) return { error: parsed.error.issues[0].message };
+  const link = cleanLink(String(fd.get("link") || ""));
+  if (link === null) return { error: "Lien du projet invalide (ex. https://www.monsite.com)." };
   const file = fd.get("image");
   if (!(file instanceof File) || file.size === 0) return { error: "Choisissez une image." };
   if (file.size > MAX_IMAGE_BYTES) return { error: "Image trop lourde (5 Mo maximum)." };
@@ -397,6 +414,7 @@ export async function createRealisation(_: unknown, fd: FormData): Promise<{ ok?
   await db.insert("realisations", {
     ...parsed.data,
     image: key,
+    link,
     featured: fd.get("featured") === "on",
     visible: true,
   });
@@ -420,7 +438,9 @@ export async function editRealisation(id: string, fd: FormData) {
   const caption = String(fd.get("caption") || "").trim().slice(0, 300);
   const service = String(fd.get("service"));
   if (title.length < 2 || !["evenementiel", "imprimerie", "informatique", "digital", "communication"].includes(service)) return;
-  await db.update("realisations", id, { title, caption, service: service as "evenementiel" | "imprimerie" | "informatique" | "digital" | "communication" });
+  const link = cleanLink(String(fd.get("link") || ""));
+  if (link === null) return;
+  await db.update("realisations", id, { title, caption, link, service: service as "evenementiel" | "imprimerie" | "informatique" | "digital" | "communication" });
   await audit(u.email, "modification réalisation", title);
   refreshGallery();
 }

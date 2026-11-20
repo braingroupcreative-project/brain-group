@@ -159,3 +159,7 @@ alter table realisations drop constraint if exists realisations_service_check;
 alter table realisations add constraint realisations_service_check
   check (service in ('evenementiel','imprimerie','informatique','digital','communication'));
 notify pgrst, 'reload schema';
+
+-- ---- Mise à jour v1.4 : lien du projet sur les réalisations ----
+alter table realisations add column if not exists link text not null default '';
+notify pgrst, 'reload schema';

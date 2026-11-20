@@ -160,9 +160,9 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePage> = {
  * puis gérées depuis l'administration (Réalisations : ajout, masquage, mise en avant, suppression).
  */
 export const DEFAULT_REALISATIONS = [
-  { id: "7b1f0a10-0000-4000-8000-000000000001", service: "imprimerie", title: "Logo — Skiny & Seduction by Flora", caption: "Création d'identité visuelle.", image: "/realisations/skiny-seduction.webp", fit: "contain", featured: true, visible: true },
-  { id: "7b1f0a10-0000-4000-8000-000000000002", service: "imprimerie", title: "Logo — BATCI, Services et Bâtiment de Côte d'Ivoire", caption: "Création d'identité visuelle.", image: "/realisations/batci.jpg", fit: "contain", featured: true, visible: true },
-  { id: "7b1f0a10-0000-4000-8000-000000000003", service: "imprimerie", title: "Logo — Dreamland Africa Business Center", caption: "Création d'identité visuelle, déclinée en versions claire et sombre.", image: "/realisations/dreamland-africa.png", fit: "contain", featured: true, visible: true },
+  { id: "7b1f0a10-0000-4000-8000-000000000001", service: "imprimerie", title: "Logo — Skiny & Seduction by Flora", caption: "Création d'identité visuelle.", image: "/realisations/skiny-seduction.webp", fit: "contain", featured: true, visible: true, link: "" },
+  { id: "7b1f0a10-0000-4000-8000-000000000002", service: "imprimerie", title: "Logo — BATCI, Services et Bâtiment de Côte d'Ivoire", caption: "Création d'identité visuelle.", image: "/realisations/batci.jpg", fit: "contain", featured: true, visible: true, link: "" },
+  { id: "7b1f0a10-0000-4000-8000-000000000003", service: "imprimerie", title: "Logo — Dreamland Africa Business Center", caption: "Création d'identité visuelle, déclinée en versions claire et sombre.", image: "/realisations/dreamland-africa.png", fit: "contain", featured: true, visible: true, link: "" },
 ] as const;
 
 export const ADVANTAGES = [

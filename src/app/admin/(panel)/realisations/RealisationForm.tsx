@@ -43,6 +43,10 @@ export function RealisationForm() {
         <label className="label" htmlFor="rc">Légende</label>
         <input id="rc" name="caption" maxLength={300} className="input !py-2" placeholder="Ex. Création d'identité visuelle" />
       </div>
+      <div>
+        <label className="label" htmlFor="rl">Lien du projet (facultatif)</label>
+        <input id="rl" name="link" maxLength={300} className="input !py-2" placeholder="https://www.site-du-client.com ou lien YouTube" inputMode="url" />
+      </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
           <label className="label" htmlFor="rs">Activité *</label>
