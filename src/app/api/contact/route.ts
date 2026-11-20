@@ -15,7 +15,7 @@ const schema = z.object({
   consent: z.literal("true"),
 });
 
-export async function POST(req: Request) {
+async function handle(req: Request) {
   if (!sameOrigin(req.headers)) return NextResponse.json({ error: "Origine refusée." }, { status: 403 });
   if (!rateLimit(`contact:${clientIp(req.headers)}`, 4, 10 * 60 * 1000))
     return NextResponse.json({ error: "Trop de messages. Réessayez plus tard." }, { status: 429 });
@@ -36,4 +36,16 @@ export async function POST(req: Request) {
     ),
   });
   return NextResponse.json({ ok: true });
+}
+
+export async function POST(req: Request) {
+  try {
+    return await handle(req);
+  } catch (e) {
+    console.error("[api] erreur", e);
+    return NextResponse.json(
+      { error: "Une erreur est survenue côté serveur. Réessayez dans un instant ou contactez-nous par WhatsApp." },
+      { status: 500 }
+    );
+  }
 }

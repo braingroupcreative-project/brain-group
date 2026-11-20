@@ -22,7 +22,7 @@ const base = z.object({
   consent: z.literal("true", { message: "Votre consentement est requis" }),
 });
 
-export async function POST(req: Request) {
+async function handle(req: Request) {
   if (!sameOrigin(req.headers)) return NextResponse.json({ error: "Origine refusée." }, { status: 403 });
   const ip = clientIp(req.headers);
   if (!rateLimit(`devis:${ip}`, 5, 10 * 60 * 1000))
@@ -108,4 +108,16 @@ export async function POST(req: Request) {
   await Promise.allSettled([notifyNewRequest(row), acknowledgeRequest(row)]);
 
   return NextResponse.json({ ok: true, ref: row.ref, service: row.service });
+}
+
+export async function POST(req: Request) {
+  try {
+    return await handle(req);
+  } catch (e) {
+    console.error("[api] erreur", e);
+    return NextResponse.json(
+      { error: "Une erreur est survenue côté serveur. Réessayez dans un instant ou contactez-nous par WhatsApp." },
+      { status: 500 }
+    );
+  }
 }

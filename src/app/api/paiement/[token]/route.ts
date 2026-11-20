@@ -15,7 +15,8 @@ const schema = z.object({
 });
 
 /** Le client déclare son paiement Wave (référence + preuve facultative). Il est ensuite VÉRIFIÉ à la main par l'administrateur. */
-export async function POST(req: Request, { params }: { params: Promise<{ token: string }> }) {
+type Ctx = { params: Promise<{ token: string }> };
+async function handle(req: Request, { params }: Ctx) {
   if (!sameOrigin(req.headers)) return NextResponse.json({ error: "Origine refusée." }, { status: 403 });
   if (!rateLimit(`pay:${clientIp(req.headers)}`, 6, 10 * 60 * 1000))
     return NextResponse.json({ error: "Trop de tentatives." }, { status: 429 });
@@ -62,4 +63,16 @@ export async function POST(req: Request, { params }: { params: Promise<{ token: 
   });
   await notifyPaymentDeclared(q, r, p).catch(() => {});
   return NextResponse.json({ ok: true });
+}
+
+export async function POST(req: Request, ctx: Ctx) {
+  try {
+    return await handle(req, ctx);
+  } catch (e) {
+    console.error("[api] erreur", e);
+    return NextResponse.json(
+      { error: "Une erreur est survenue côté serveur. Réessayez dans un instant ou contactez-nous par WhatsApp." },
+      { status: 500 }
+    );
+  }
 }

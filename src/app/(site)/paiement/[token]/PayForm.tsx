@@ -12,7 +12,7 @@ export function PayForm({ token, suggested, max }: { token: string; suggested: n
     setState("sending");
     try {
       const res = await fetch(`/api/paiement/${token}`, { method: "POST", body: new FormData(e.currentTarget) });
-      const j = await res.json();
+      const j = await res.json().catch(() => ({} as Record<string, never>));
       if (!res.ok) throw new Error(j.error || "Erreur");
       (e.target as HTMLFormElement).reset();
       setState("idle");

@@ -13,7 +13,7 @@ export function ContactForm() {
     fd.set("t", String(t0.current));
     try {
       const res = await fetch("/api/contact", { method: "POST", body: fd });
-      const j = await res.json();
+      const j = await res.json().catch(() => ({} as Record<string, never>));
       if (!res.ok) throw new Error(j.error || "Erreur");
       setState("ok");
     } catch (err) {

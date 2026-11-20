@@ -85,7 +85,7 @@ export function QuoteForm({ initialService }: { initialService?: ServiceKey }) {
     fd.set("t", String(t0.current));
     try {
       const res = await fetch("/api/devis", { method: "POST", body: fd });
-      const j = await res.json();
+      const j = await res.json().catch(() => ({} as Record<string, never>));
       if (!res.ok) {
         if (j.fields) {
           setErrors(j.fields);
