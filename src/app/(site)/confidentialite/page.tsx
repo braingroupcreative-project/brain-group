@@ -19,7 +19,14 @@ export default function Page() {
       </ul>
       <p>Nous ne collectons que les données nécessaires et ne les vendons pas.</p>
       <h2>Destinataires et sous-traitants</h2>
-      <p>Les données sont accessibles uniquement aux personnes habilitées de Brain Group. Elles sont traitées par nos prestataires techniques : hébergement (Vercel), base de données et stockage privé (Supabase), envoi d&apos;e-mails (Resend).</p>
+      <p>Les données sont accessibles uniquement aux personnes habilitées de Brain Group. Elles sont traitées par nos prestataires techniques : hébergement (Vercel), base de données et stockage privé (Supabase), envoi d&apos;e-mails (Resend). Avec votre accord, les plateformes publicitaires Meta, TikTok et Google reçoivent des données de navigation.</p>
+      <h2>Cookies, mesure d&apos;audience et publicité</h2>
+      <p>
+        Avec votre accord, le site utilise des pixels de suivi de Meta (Facebook et Instagram), TikTok et Google pour mesurer l&apos;audience, vérifier l&apos;efficacité de nos publicités et vous présenter
+        des annonces pertinentes. Ces outils déposent des cookies et reçoivent des informations de navigation (pages vues, demande de devis envoyée, clic sur WhatsApp).
+        Ils ne sont activés qu&apos;après votre consentement et ne sont jamais utilisés sur les pages privées de devis et de paiement. Vous pouvez refuser ou modifier votre choix à tout moment
+        avec le lien « Gérer les cookies » en bas de page.
+      </p>
       <h2>Durée de conservation</h2>
       <p>[Durée à définir, par exemple : demandes sans suite 24 mois ; documents commerciaux et comptables selon la durée légale].</p>
       <h2>Vos droits</h2>

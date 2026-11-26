@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "./Icon";
 import { SERVICES, SITE, waLink, type ServiceKey } from "@/lib/site";
+import { track } from "@/lib/track";
 
 /** Message prérempli par pôle : le client arrive déjà qualifié dans la conversation. */
 const TOPICS: { key: ServiceKey; emoji: string; ask: string }[] = [
@@ -14,7 +15,7 @@ const TOPICS: { key: ServiceKey; emoji: string; ask: string }[] = [
   { key: "communication", emoji: "📣", ask: "la communication et la visibilité (réseaux sociaux, clip vidéo…)" },
 ];
 
-export function WhatsAppFloat() {
+export function WhatsAppFloat({ trackContact = false }: { trackContact?: boolean }) {
   const [open, setOpen] = useState(false);
   const path = usePathname();
   const box = useRef<HTMLDivElement>(null);
@@ -35,6 +36,7 @@ export function WhatsAppFloat() {
 
   const where = path && path !== "/" ? ` (depuis la page ${path})` : "";
   const open_wa = (text: string) => {
+    if (trackContact) track("Contact", { method: "whatsapp" });
     window.open(waLink(text), "_blank", "noopener,noreferrer");
     setOpen(false);
   };

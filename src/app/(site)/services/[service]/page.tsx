@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { SERVICE_PAGES } from "@/lib/content";
 import { SERVICES, SITE, waLink, type ServiceKey } from "@/lib/site";
 import { Icon } from "@/components/Icon";
+import { TrackEvent } from "@/components/TrackEvent";
 
 export function generateStaticParams() {
   return Object.keys(SERVICE_PAGES).map((service) => ({ service }));
@@ -38,6 +39,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
   return (
     <>
+      <TrackEvent event="ViewContent" onceKey={`view_${p.key}`} params={{ content_name: p.title, content_category: p.key }} />
       <section className={`bg-gradient-to-br ${p.gradient} text-white`}>
         <div className="container-x grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-[1.1fr_.9fr]">
           <div>

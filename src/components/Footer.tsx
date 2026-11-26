@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
+import { CookieSettings } from "./CookieSettings";
 import { SITE, SERVICES, waLink } from "@/lib/site";
 
 export function Footer() {
@@ -28,6 +29,7 @@ export function Footer() {
             <li><Link className="hover:text-orange" href="/mentions-legales">Mentions légales</Link></li>
             <li><Link className="hover:text-orange" href="/confidentialite">Politique de confidentialité</Link></li>
             <li><Link className="hover:text-orange" href="/conditions">Conditions de vente et de paiement</Link></li>
+            <CookieSettings />
           </ul>
         </div>
         <div>

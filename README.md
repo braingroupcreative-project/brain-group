@@ -101,3 +101,19 @@ Conformité Côte d'Ivoire (données personnelles, durée de conservation) : à 
 
 ## 8. Choix d'architecture retenus (à confirmer)
 Next.js + PostgreSQL managé + stockage privé (recommandation du §10) · administrateur + agents · devis préparé manuellement · acompte défini devis par devis (50 % proposé par défaut) · Wave par QR avec vérification manuelle · WhatsApp par lien direct + relance manuelle · catalogue informatique sans prix.
+
+## 9. Pixels publicitaires (Meta, TikTok, Google)
+
+Le site est prêt à être suivi pour vos publicités. Aucun identifiant n'est dans le code : ajoutez-les dans **Vercel → Settings → Environment Variables**, puis **Redeploy**.
+
+| Variable | Où la trouver |
+|---|---|
+| `NEXT_PUBLIC_META_PIXEL_ID` | Meta Business Suite → Gestionnaire d'événements → Sources de données → Pixel (ID à 15-16 chiffres) |
+| `NEXT_PUBLIC_TIKTOK_PIXEL_ID` | TikTok Ads Manager → Assets → Events → Web Events → Pixel ID |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 → Admin → Flux de données → ID de mesure (`G-…`) |
+| `NEXT_PUBLIC_GADS_ID` et `NEXT_PUBLIC_GADS_LEAD_LABEL` | Google Ads → Objectifs → Conversions → Tag (`AW-…` et l'étiquette de conversion) |
+| `NEXT_PUBLIC_META_DOMAIN_VERIFICATION` | Meta Business → Sécurité de la marque → Domaines → vérification par balise meta (valeur de `content`) |
+
+**Événements envoyés** (seulement après acceptation des cookies) : page vue, consultation d'une page de service (`ViewContent`), demande de devis envoyée (`Lead` / `SubmitForm` / `generate_lead`), clic sur le menu WhatsApp (`Contact`).
+**Protection** : aucun suivi sur `/admin`, `/proposition` et `/paiement` (leurs adresses contiennent un jeton secret). Bannière de consentement avec lien « Gérer les cookies » en pied de page.
+**Test** : extensions « Meta Pixel Helper », « TikTok Pixel Helper » et Google « Tag Assistant ».

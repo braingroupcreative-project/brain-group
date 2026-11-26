@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     "Brain Group : couverture événementielle, imprimerie & communication visuelle, matériel informatique, création de sites web, applications, automatisation, IA, communication et visibilité. Demandez votre devis en ligne.",
   openGraph: { type: "website", locale: "fr_CI", siteName: "Brain Group", url: SITE.url },
   robots: { index: true, follow: true },
+  // Vérification de domaine (Meta Business, Google Search Console) : renseignée via les variables d'environnement.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_META_DOMAIN_VERIFICATION
+      ? { "facebook-domain-verification": process.env.NEXT_PUBLIC_META_DOMAIN_VERIFICATION }
+      : undefined,
+  },
 };
 
 export const viewport: Viewport = { themeColor: "#101B36", width: "device-width", initialScale: 1 };
